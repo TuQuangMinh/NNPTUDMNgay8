@@ -6,18 +6,18 @@ const transporter = nodemailer.createTransport({
     port: 25,
     secure: false, // Use true for port 465, false for port 587
     auth: {
-        user: "",
-        pass: "",
+        user: "e30d15859c496f",
+        pass: "be8b4985b87cb8",
     },
 });
 module.exports = {
-    sendMail: async function (to,url) {
+    sendMail: async function (to, subject, text, html) {
         const info = await transporter.sendMail({
-            from: 'hehehe@gmail.com',
+            from: 'admin@nnptud.com',
             to: to,
-            subject: "reset password URL",
-            text: "click vao day de doi pass", // Plain-text version of the message
-            html: "click vao <a href="+url+">day</a> de doi pass", // HTML version of the message
+            subject: subject,
+            text: text,
+            html: html,
         });
 
         console.log("Message sent:", info.messageId);
